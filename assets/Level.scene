@@ -3,29 +3,66 @@
     "sceneType": "SCENE",
     "settings": {
         "preloadPackFiles": [],
-        "sceneKey": "Level"
+        "sceneKey": "Level",
+        "borderWidth": 640,
+        "borderHeight": 960
     },
     "displayList": [
         {
             "type": "Image",
-            "id": "7d5827fd-34f6-473f-90e0-b9424a51d5fa",
-            "label": "dino",
+            "id": "a05a13bf-f0cb-4292-bfb0-f389d14f29b2",
+            "label": "background",
+            "components": [],
             "texture": {
-                "key": "dino"
+                "key": "background"
             },
-            "x": 400,
-            "y": 300
+            "originX": 0,
+            "originY": 0
         },
         {
-            "type": "Text",
-            "id": "b2b3dbd5-2106-41fa-8a04-9b511e3401a9",
-            "label": "text_1",
-            "x": 400,
-            "y": 450,
-            "originY": 0,
-            "text": "Welcome to Phaser Editor 2D!",
-            "fontSize": "30px",
-            "fontStyle": "bold"
+            "type": "Sprite",
+            "id": "f4c57b13-16fb-459c-bd04-8359d880bec8",
+            "label": "bgBuildings2",
+            "scope": "CLASS",
+            "components": [],
+            "texture": {
+                "key": "bgBuildings2"
+            },
+            "y": 818
+        },
+        {
+            "type": "Image",
+            "id": "cd939e7e-227a-43e0-913f-5b1382cff045",
+            "label": "bgBuildings1",
+            "scope": "CLASS",
+            "components": [],
+            "texture": {
+                "key": "bgBuildings1"
+            },
+            "x": 640,
+            "y": 863
+        },
+        {
+            "type": "Image",
+            "id": "29b775e6-9404-48ad-8db9-1d046a934101",
+            "label": "moonBg",
+            "components": [],
+            "texture": {
+                "key": "moonBg"
+            },
+            "x": 323,
+            "y": 196
+        },
+        {
+            "type": "Image",
+            "id": "85141c2c-5580-4f84-aec3-e71f882ebfa8",
+            "label": "chimneyBg",
+            "components": [],
+            "texture": {
+                "key": "chimneyBg"
+            },
+            "x": 318,
+            "y": 880
         }
     ],
     "meta": {

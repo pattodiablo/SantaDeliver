@@ -10,6 +10,36 @@
                 "url": "assets/Level.js",
                 "type": "sceneFile",
                 "key": "Level"
+            },
+            {
+                "url": "assets/images/background.png",
+                "type": "image",
+                "key": "background"
+            },
+            {
+                "url": "assets/images/bgBuildings1.png",
+                "type": "image",
+                "key": "bgBuildings1"
+            },
+            {
+                "url": "assets/images/bgBuildings2.png",
+                "type": "image",
+                "key": "bgBuildings2"
+            },
+            {
+                "url": "assets/images/moonBg.png",
+                "type": "image",
+                "key": "moonBg"
+            },
+            {
+                "url": "assets/images/chimneyBg.png",
+                "type": "image",
+                "key": "chimneyBg"
+            },
+            {
+                "url": "assets/images/player.png",
+                "type": "image",
+                "key": "player"
             }
         ]
     },
