@@ -1,0 +1,34 @@
+{
+    "id": "a7f32fb7-13a9-448e-9799-839fab8f42ce",
+    "settings": {
+        "createMethodName": "",
+        "preloadMethodName": "",
+        "compilerOutputLanguage": "JAVA_SCRIPT",
+        "compilerInsertSpaces": false,
+        "compilerTabSize": 4,
+        "borderWidth": 640,
+        "borderHeight": 960,
+        "borderX": 0,
+        "borderY": 0
+    },
+    "sceneType": "PREFAB",
+    "displayList": [
+        {
+            "type": "Sprite",
+            "id": "fa77fff4-d5b9-4139-8374-bffd183b30ff",
+            "label": "player",
+            "scope": "CLASS",
+            "components": [],
+            "texture": {
+                "key": "player"
+            },
+            "x": 0,
+            "y": 0
+        }
+    ],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType"
+    }
+}

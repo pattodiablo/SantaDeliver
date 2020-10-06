@@ -3,6 +3,7 @@
     "sceneType": "SCENE",
     "settings": {
         "preloadPackFiles": [],
+        "createMethodName": "_create",
         "sceneKey": "Level",
         "borderWidth": 640,
         "borderHeight": 960
@@ -51,7 +52,7 @@
                 "key": "moonBg"
             },
             "x": 323,
-            "y": 196
+            "y": 69
         },
         {
             "type": "Image",
@@ -63,6 +64,29 @@
             },
             "x": 318,
             "y": 880
+        },
+        {
+            "type": "Sprite",
+            "id": "cb2921c4-3403-40a0-a5c0-93a52b4a8afb",
+            "label": "player",
+            "scope": "CLASS",
+            "components": [],
+            "texture": {
+                "key": "player"
+            },
+            "x": 317,
+            "y": 260
+        },
+        {
+            "type": "Image",
+            "id": "0f1f3f91-3fa0-4dcc-a478-766b5ac00e97",
+            "label": "enemy",
+            "components": [],
+            "texture": {
+                "key": "enemy"
+            },
+            "x": 209,
+            "y": 753
         }
     ],
     "meta": {

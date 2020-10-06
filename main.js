@@ -5,10 +5,20 @@ window.addEventListener('load', function () {
 		width: 640, 
 		height: 960,
 		type: Phaser.AUTO,
-        backgroundColor: "#000000",
+		backgroundColor: "#000000",
+		physics: {
+			default: "arcade",
+			arcade: {
+				gravity: 400,
+				debug: false
+			}
+		},
 		scale: {
 			mode: Phaser.Scale.FIT,
 			autoCenter: Phaser.Scale.CENTER_BOTH
+		},
+		input: {
+			activePointers: 1
 		}
 	});
 	

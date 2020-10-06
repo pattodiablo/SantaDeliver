@@ -7,11 +7,6 @@
                 "key": "dino"
             },
             {
-                "url": "assets/Level.js",
-                "type": "sceneFile",
-                "key": "Level"
-            },
-            {
                 "url": "assets/images/background.png",
                 "type": "image",
                 "key": "background"
@@ -40,6 +35,26 @@
                 "url": "assets/images/player.png",
                 "type": "image",
                 "key": "player"
+            },
+            {
+                "url": "assets/images/laserGift.png",
+                "type": "image",
+                "key": "laserGift"
+            },
+            {
+                "url": "assets/levels/Level.js",
+                "type": "sceneFile",
+                "key": "Level"
+            },
+            {
+                "url": "assets/prefabs/Bullet.js",
+                "type": "script",
+                "key": "Bullet"
+            },
+            {
+                "url": "assets/images/enemy.png",
+                "type": "image",
+                "key": "enemy"
             }
         ]
     },
