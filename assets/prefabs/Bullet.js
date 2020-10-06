@@ -36,6 +36,8 @@ class Bullet extends Phaser.GameObjects.Container {
 	start() {
 		
 		
+		this.bullet = this.scene.sound.add('shoot');
+		this.bullet.play();
 		const arcade = this.scene.physics;
 		arcade.add.existing(this);
 		const body = this.body;
