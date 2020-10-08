@@ -66,7 +66,6 @@ class Level extends Phaser.Scene {
 		this.player.y = this.input.y;
 		this.floatingSanta();
 		
-	
 
 	}
 

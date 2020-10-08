@@ -55,6 +55,13 @@
                 "url": "assets/images/enemy.png",
                 "type": "image",
                 "key": "enemy"
+            },
+            {
+                "url": [
+                    "assets/sounds/shoot.mp3"
+                ],
+                "type": "audio",
+                "key": "shoot"
             }
         ]
     },
