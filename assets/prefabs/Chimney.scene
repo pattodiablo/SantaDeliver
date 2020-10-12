@@ -1,0 +1,27 @@
+{
+    "id": "b7e1c0a9-558b-400f-907c-13f629c78ab7",
+    "sceneType": "PREFAB",
+    "settings": {
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 640,
+        "borderHeight": 960
+    },
+    "displayList": [
+        {
+            "type": "Sprite",
+            "id": "9436e76b-ffee-40e5-b595-e7553a7d1dc6",
+            "label": "chimney",
+            "components": [],
+            "texture": {
+                "key": "chimney"
+            }
+        }
+    ],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType"
+    }
+}

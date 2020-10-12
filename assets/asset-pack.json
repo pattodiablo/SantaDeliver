@@ -62,6 +62,41 @@
                 ],
                 "type": "audio",
                 "key": "shoot"
+            },
+            {
+                "url": "assets/prefabs/Enemy.js",
+                "type": "script",
+                "key": "Enemy"
+            },
+            {
+                "url": "assets/images/enemyBullet.png",
+                "type": "image",
+                "key": "enemyBullet"
+            },
+            {
+                "url": "assets/prefabs/EnemyBullet.js",
+                "type": "script",
+                "key": "EnemyBullet"
+            },
+            {
+                "url": "assets/prefabs/SantaPlayer.js",
+                "type": "script",
+                "key": "SantaPlayer"
+            },
+            {
+                "url": "assets/images/flake.png",
+                "type": "image",
+                "key": "flake"
+            },
+            {
+                "url": "assets/images/chimney.png",
+                "type": "image",
+                "key": "chimney"
+            },
+            {
+                "url": "assets/prefabs/Chimney.js",
+                "type": "script",
+                "key": "Chimney"
             }
         ]
     },

@@ -55,38 +55,13 @@
             "y": 69
         },
         {
-            "type": "Image",
-            "id": "85141c2c-5580-4f84-aec3-e71f882ebfa8",
-            "label": "chimneyBg",
-            "components": [],
-            "texture": {
-                "key": "chimneyBg"
-            },
-            "x": 318,
-            "y": 880
-        },
-        {
-            "type": "Sprite",
-            "id": "cb2921c4-3403-40a0-a5c0-93a52b4a8afb",
+            "prefabId": "35822b4f-3c3f-4cd6-8fa2-555db747ea57",
+            "id": "1e9d3292-6c1c-4bc6-bd59-2ea491c2c9dc",
             "label": "player",
             "scope": "CLASS",
             "components": [],
-            "texture": {
-                "key": "player"
-            },
-            "x": 317,
-            "y": 260
-        },
-        {
-            "type": "Image",
-            "id": "0f1f3f91-3fa0-4dcc-a478-766b5ac00e97",
-            "label": "enemy",
-            "components": [],
-            "texture": {
-                "key": "enemy"
-            },
-            "x": 209,
-            "y": 753
+            "x": 484,
+            "y": 383
         }
     ],
     "meta": {

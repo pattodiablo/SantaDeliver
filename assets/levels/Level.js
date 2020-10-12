@@ -14,7 +14,7 @@ class Level extends Phaser.Scene {
 		this.bgBuildings2;
 		/** @type {Phaser.GameObjects.Image} */
 		this.bgBuildings1;
-		/** @type {Phaser.GameObjects.Sprite} */
+		/** @type {SantaPlayer} */
 		this.player;
 		
 		/* START-USER-CTR-CODE */
@@ -38,14 +38,9 @@ class Level extends Phaser.Scene {
 		// moonBg
 		this.add.image(323, 69, "moonBg");
 		
-		// chimneyBg
-		this.add.image(318, 880, "chimneyBg");
-		
 		// player
-		const player = this.add.sprite(317, 260, "player");
-		
-		// enemy
-		this.add.image(209, 753, "enemy");
+		const player = new SantaPlayer(this, 484, 383);
+		this.add.existing(player);
 		
 		this.bgBuildings2 = bgBuildings2;
 		this.bgBuildings1 = bgBuildings1;
@@ -60,11 +55,87 @@ class Level extends Phaser.Scene {
 		this._create();
 		this.canMove = false;
 		
+		
 		this.input.on('pointerdown',this.mouseClickDown,this);
 		this.input.on('pointerup',this.mouseClickUp,this);
 		this.player.x = this.input.x;
 		this.player.y = this.input.y;
 		this.floatingSanta();
+		
+		this.enemyBullets = this.physics.add.group();
+		this.santaBullets = this.physics.add.group();
+		this.chimeneas = this.physics.add.group();
+
+		this.chimeneyCount = 0;
+
+		this.createChimneyTimer = this.time.addEvent({
+			delay: 1000,                // ms
+			callback: this.crearChimeneas,
+			//args: [],
+			callbackScope: this,
+			loop: true
+		});
+
+
+		var particles = this.add.particles('flake');
+
+		var emitter = particles.createEmitter({
+			x: this.game.config.width/2,
+			y: -300,
+			angle: { min: 180, max: 360 },
+			speed: 200,
+			gravityY: 50,
+			lifespan: 160000,
+			quantity: 6,
+			alpha: 0.2,
+			scale: { start: 0.5, end: 1 },
+			blendMode: 'ADD'
+		});
+		
+	}
+
+	crearChimeneas(){
+
+		const fixer = 80;
+		if(this.chimeneas.getLength()<4){
+
+				switch(this.chimeneyCount){
+					case 0:
+						console.log('estoy aqui');
+						this.minPos = 150-fixer;
+						this.maxpos = 170-fixer;
+						this.chimeneyCount++;
+						break;
+					case 1:
+						this.minPos = 310-fixer;
+						this.maxpos = 330-fixer;
+						this.chimeneyCount++;
+						break;
+					case 2:
+						this.minPos = 470-fixer;
+						this.maxpos = 490-fixer;
+						this.chimeneyCount++;
+						break;
+					case 3:
+						this.minPos = 630-fixer;
+						this.maxpos = 650-fixer;
+						this.chimeneyCount = 0;
+						break;
+					default:
+						break;
+				}
+				
+				this.randomX = Math.random()*(this.minPos -this.maxpos)+this.maxpos;
+				console.log(this.randomX);
+									
+				const chimney = new Chimney(this, this.randomX, this.game.config.height*1.3);
+				this.add.existing(chimney);
+				this.chimeneas.add(chimney);
+
+				const enemy = new Enemy(this, chimney.x, chimney.y-400);
+				this.add.existing(enemy);
+		
+		}
 		
 
 	}
@@ -111,6 +182,7 @@ class Level extends Phaser.Scene {
 	santaFire(){
 		const bullet = new Bullet(this, this.player.x, this.player.y+100);
 		this.add.existing(bullet);
+		this.santaBullets.add(bullet);
 	}
 
 	floatingSanta(){
