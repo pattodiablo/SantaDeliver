@@ -1,29 +1,23 @@
 {
-    "id": "a7f32fb7-13a9-448e-9799-839fab8f42ce",
-    "settings": {
-        "createMethodName": "",
-        "preloadMethodName": "",
-        "compilerOutputLanguage": "JAVA_SCRIPT",
-        "compilerInsertSpaces": false,
-        "compilerTabSize": 4,
-        "borderWidth": 640,
-        "borderHeight": 960,
-        "borderX": 0,
-        "borderY": 0
-    },
+    "id": "35822b4f-3c3f-4cd6-8fa2-555db747ea57",
     "sceneType": "PREFAB",
+    "settings": {
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 640,
+        "borderHeight": 960
+    },
     "displayList": [
         {
             "type": "Sprite",
-            "id": "fa77fff4-d5b9-4139-8374-bffd183b30ff",
-            "label": "player",
+            "id": "b7845f57-3f65-4285-8e00-a2222e180604",
+            "label": "santaPlayer",
             "scope": "CLASS",
             "components": [],
             "texture": {
                 "key": "player"
-            },
-            "x": 0,
-            "y": 0
+            }
         }
     ],
     "meta": {

@@ -1,0 +1,27 @@
+{
+    "id": "e72a4b55-90e2-454f-9120-29b6c811db3a",
+    "sceneType": "PREFAB",
+    "settings": {
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 640,
+        "borderHeight": 960
+    },
+    "displayList": [
+        {
+            "type": "Sprite",
+            "id": "fbe7c4e1-4515-4690-a797-cced0703cf2e",
+            "label": "enemy",
+            "components": [],
+            "texture": {
+                "key": "enemy"
+            }
+        }
+    ],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType"
+    }
+}

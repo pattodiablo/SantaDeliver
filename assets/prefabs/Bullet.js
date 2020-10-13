@@ -37,17 +37,18 @@ class Bullet extends Phaser.GameObjects.Container {
 		
 		
 		this.bullet = this.scene.sound.add('shoot');
-		this.bullet.play();
+	
 		const arcade = this.scene.physics;
 		arcade.add.existing(this);
 		const body = this.body;
 		body.setSize(this.width, this.height);
 		body.velocity.y =800;
 		this.bulletBornAnim();
+		this.scale = 0.5;
 	}
 
 	bulletBornAnim(){
-
+		this.bullet.play();
 		this.shootingTween = this.scene.tweens.add({
 			targets: this.bornImage,
 			scaleX: '2',
@@ -58,8 +59,7 @@ class Bullet extends Phaser.GameObjects.Container {
 			loop: false,
 			
 		});
-		
-		
+	
 	}
 
 	updateBullet(time, delta) {		
