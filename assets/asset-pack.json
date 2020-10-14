@@ -97,6 +97,41 @@
                 "url": "assets/prefabs/Chimney.js",
                 "type": "script",
                 "key": "Chimney"
+            },
+            {
+                "url": "assets/images/enemyShield.png",
+                "type": "image",
+                "key": "enemyShield"
+            },
+            {
+                "url": "assets/prefabs/EnemyShield.js",
+                "type": "script",
+                "key": "EnemyShield"
+            },
+            {
+                "url": "assets/images/debree.png",
+                "type": "image",
+                "key": "debree"
+            },
+            {
+                "url": "assets/prefabs/Debree.js",
+                "type": "script",
+                "key": "Debree"
+            },
+            {
+                "url": "assets/images/citylights.png",
+                "type": "image",
+                "key": "citylights"
+            },
+            {
+                "url": "assets/images/portal.png",
+                "type": "image",
+                "key": "portal"
+            },
+            {
+                "url": "assets/prefabs/Portal.js",
+                "type": "script",
+                "key": "Portal"
             }
         ]
     },

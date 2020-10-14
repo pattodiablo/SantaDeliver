@@ -26,7 +26,7 @@ class SantaPlayer extends Phaser.GameObjects.Sprite {
 		const arcade = this.scene.physics;
 		arcade.add.existing(this);
 		arcade.add.overlap(this, this.scene.enemyBullets, this.shotByBullet, null, this);
-		this.scale = 0.9;
+		this.scale = 0.8;
 
 	}
 

@@ -25,8 +25,8 @@ class Bullet extends Phaser.GameObjects.Container {
 		this.bornImage = bornImage;
 		
 		/* START-USER-CTR-CODE */
-	this.createEvent =	this.scene.events.once(Phaser.Scenes.Events.UPDATE, this.start, this);
-	this.updateEvent = 	this.scene.events.on(Phaser.Scenes.Events.UPDATE, this.updateBullet, this);
+	this.scene.events.once(Phaser.Scenes.Events.UPDATE, this.start, this);
+	this.scene.events.on(Phaser.Scenes.Events.UPDATE, this.updateBullet, this);
 		/* END-USER-CTR-CODE */
 	}
 	
@@ -35,40 +35,72 @@ class Bullet extends Phaser.GameObjects.Container {
 	// Write your code here.
 	start() {
 		
-		
-		this.bullet = this.scene.sound.add('shoot');
+		if(typeof this.scene !== 'undefined'){
+			
+			this.bullet = this.scene.sound.add('shoot');
 	
-		const arcade = this.scene.physics;
-		arcade.add.existing(this);
-		const body = this.body;
-		body.setSize(this.width, this.height);
-		body.velocity.y =800;
-		this.bulletBornAnim();
-		this.scale = 0.5;
+			const arcade = this.scene.physics;
+			arcade.add.existing(this);
+			const body = this.body;
+			body.setSize(this.width, this.height);
+			body.velocity.y =800;
+			this.bulletBornAnim();
+			this.scale = 0.5;
+	
+			this.forceVelocityTimer = this.scene.time.addEvent({
+				delay: 50,                // ms
+				callback: this.growAnim,
+				//args: [],
+				callbackScope: this,
+				loop: false
+			});
+	
+			this.updateTimer = this.scene.time.addEvent({
+				delay: 10,       // ms
+				callback: this.customUpdate,
+				//args: [],
+				callbackScope: this,
+				loop: true
+			});
+		}
+	
+		
+	}
+
+	customUpdate(){
+		
+	
+		if(this.y>=980){
+		
+			this.updateTimer.remove();	
+			this.destroy();
+				
+		}
+
+	
 	}
 
 	bulletBornAnim(){
-		this.bullet.play();
-		this.shootingTween = this.scene.tweens.add({
+		
+		if(typeof this !=='undefined'){
+			this.bullet.play();
+			this.shootingTween = this.scene.tweens.add({
 			targets: this.bornImage,
 			scaleX: '2',
-			scaleY: '2',
+			scaleY: '1',
 			duration: 50,
 			
 			yoyo: true,
 			loop: false,
 			
 		});
+		}
+		
 	
 	}
 
 	updateBullet(time, delta) {		
-		if(this.y>=900){
-			
-			this.destroy();
-			
-			
-		}
+	
 	}
 	/* END-USER-CODE */
 }

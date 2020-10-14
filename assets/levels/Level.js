@@ -35,6 +35,9 @@ class Level extends Phaser.Scene {
 		// bgBuildings1
 		const bgBuildings1 = this.add.image(640, 863, "bgBuildings1");
 		
+		// citylights
+		this.add.image(320, 923, "citylights");
+		
 		// moonBg
 		this.add.image(323, 69, "moonBg");
 		
@@ -64,6 +67,7 @@ class Level extends Phaser.Scene {
 		
 		this.enemyBullets = this.physics.add.group();
 		this.santaBullets = this.physics.add.group();
+		this.enemies = this.physics.add.group();
 		this.chimeneas = this.physics.add.group();
 
 		this.chimeneyCount = 0;
@@ -86,7 +90,7 @@ class Level extends Phaser.Scene {
 			speed: 200,
 			gravityY: 50,
 			lifespan: 160000,
-			quantity: 6,
+			quantity: 1,
 			alpha: 0.2,
 			scale: { start: 0.5, end: 1 },
 			blendMode: 'ADD'
@@ -133,6 +137,7 @@ class Level extends Phaser.Scene {
 				this.chimeneas.add(chimney);
 
 				const enemy = new Enemy(this, chimney.x, chimney.y-400);
+				this.enemies.add(enemy);
 				this.add.existing(enemy);
 		
 		}
@@ -187,8 +192,8 @@ class Level extends Phaser.Scene {
 
 	floatingSanta(){
 
-		this.player.scaleX = 1;
-		this.player.scaleY = 1;
+		this.player.scaleX = 0.8;
+		this.player.scaleY = 0.8;
 		this.floatingTween = this.tweens.add({
 			targets: this.player,
 			y: '-=34',

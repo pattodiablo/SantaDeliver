@@ -1,0 +1,27 @@
+{
+    "id": "09c764f8-e9fd-4eb8-82cd-aacac8cb778f",
+    "sceneType": "PREFAB",
+    "settings": {
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 640,
+        "borderHeight": 960
+    },
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "3742bed5-9cad-40e7-adc1-fb300f4cbee3",
+            "label": "debree",
+            "components": [],
+            "texture": {
+                "key": "debree"
+            }
+        }
+    ],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType"
+    }
+}

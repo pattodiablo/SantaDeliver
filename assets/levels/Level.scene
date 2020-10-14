@@ -45,6 +45,17 @@
         },
         {
             "type": "Image",
+            "id": "f52c3501-c8c2-4e42-9e42-49938ef2712f",
+            "label": "citylights",
+            "components": [],
+            "texture": {
+                "key": "citylights"
+            },
+            "x": 320,
+            "y": 923
+        },
+        {
+            "type": "Image",
             "id": "29b775e6-9404-48ad-8db9-1d046a934101",
             "label": "moonBg",
             "components": [],

@@ -21,10 +21,14 @@ class Chimney extends Phaser.GameObjects.Sprite {
 		const arcade = this.scene.physics;
 		arcade.add.existing(this);
 		const body = this.body;
+		this.isObstructed = true;
+		this.portaCreated =  false;
 		body.immovable = true;
 		body.setSize(this.width, this.height-54);
 		
-		
+		arcade.add.collider(this, this.scene.enemies, this.updateObstruction,null,this);
+
+
 		this.growTimer = this.scene.time.addEvent({
 			delay: Math.random()*(5000 - 10000)+10000,                // ms
 			callback: this.growAnim,
@@ -34,6 +38,33 @@ class Chimney extends Phaser.GameObjects.Sprite {
 		});
 		
 		
+		this.checkObstruct = this.scene.time.addEvent({
+			delay: 100,                // ms
+			callback: this.checkEnemy,
+			//args: [],
+			callbackScope: this,
+			loop: true
+		});
+		
+	}
+
+	checkEnemy(){
+	
+		if(this.isObstructed != true){
+			if(!this.portaCreated){
+				console.log(this.y-this.width*3);
+			const portal = new Portal(this.scene, this.x, this.y-this.width*3);
+			this.scene.add.existing(portal);
+			this.portaCreated = true;
+			}
+			
+		}
+		this.isObstructed = false;
+	}
+
+	updateObstruction(){
+		
+		this.isObstructed = true;
 	}
 
 	growAnim(){
@@ -50,6 +81,9 @@ class Chimney extends Phaser.GameObjects.Sprite {
 	}
 
 	updateActions(){
+
+	
+		
 		if(this.y<=this.scene.game.config.height/3){
 		//	this.growTimer.stop();
 		}
