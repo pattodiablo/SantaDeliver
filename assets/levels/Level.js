@@ -14,8 +14,12 @@ class Level extends Phaser.Scene {
 		this.bgBuildings2;
 		/** @type {Phaser.GameObjects.Image} */
 		this.bgBuildings1;
+		/** @type {Phaser.GameObjects.Text} */
+		this.giftsNumber;
 		/** @type {SantaPlayer} */
 		this.player;
+		/** @type {Phaser.GameObjects.Text} */
+		this.lifes;
 		
 		/* START-USER-CTR-CODE */
 		// Write your code here.
@@ -39,15 +43,45 @@ class Level extends Phaser.Scene {
 		this.add.image(320, 923, "citylights");
 		
 		// moonBg
-		this.add.image(323, 69, "moonBg");
+		this.add.image(324, 69, "moonBg");
+		
+		// panel
+		this.add.image(120, 51, "panel");
+		
+		// giftsNumber
+		const giftsNumber = this.add.text(111, 30, "", {});
+		giftsNumber.text = "000";
+		giftsNumber.setStyle({"fontFamily":"arial","fontSize":"46px","fontStyle":"bold"});
+		
+		// text_1_1
+		const text_1_1 = this.add.text(89, 12, "", {});
+		text_1_1.text = "Gifts delivered";
+		text_1_1.setStyle({"fontFamily":"arial","fontSize":"18px","fontStyle":"bold"});
+		
+		// giftIcon
+		this.add.image(51, 47, "giftIcon");
 		
 		// player
-		const player = new SantaPlayer(this, 484, 383);
+		const player = new SantaPlayer(this, 319, -140);
 		this.add.existing(player);
+		
+		// panel_1
+		const panel_1 = this.add.image(530, 51, "panel");
+		panel_1.flipX = true;
+		
+		// heart
+		this.add.image(504, 50, "heart");
+		
+		// lifes
+		const lifes = this.add.text(549, 26, "", {});
+		lifes.text = "x 10";
+		lifes.setStyle({"fontFamily":"Arial","fontSize":"36px","fontStyle":"bold"});
 		
 		this.bgBuildings2 = bgBuildings2;
 		this.bgBuildings1 = bgBuildings1;
+		this.giftsNumber = giftsNumber;
 		this.player = player;
+		this.lifes = lifes;
 	}
 	
 	/* START-USER-CODE */
@@ -57,24 +91,27 @@ class Level extends Phaser.Scene {
 
 		this._create();
 		this.canMove = false;
-		
+		this.firstimeMove = false;
 		
 		this.input.on('pointerdown',this.mouseClickDown,this);
 		this.input.on('pointerup',this.mouseClickUp,this);
-		this.player.x = this.input.x;
-		this.player.y = this.input.y;
+	
 		this.floatingSanta();
 		
 		this.enemyBullets = this.physics.add.group();
 		this.santaBullets = this.physics.add.group();
 		this.enemies = this.physics.add.group();
 		this.chimeneas = this.physics.add.group();
-
+		this.portals = this.physics.add.group();
+		this.hearts = this.physics.add.group();
+		
 		this.chimeneyCount = 0;
 
-		this.createChimneyTimer = this.time.addEvent({
-			delay: 1000,                // ms
-			callback: this.crearChimeneas,
+		
+
+		this.createHeartTimer = this.time.addEvent({
+			delay: 5000,                // ms
+			callback: this.crearHeart,
 			//args: [],
 			callbackScope: this,
 			loop: true
@@ -98,6 +135,23 @@ class Level extends Phaser.Scene {
 		
 	}
 
+	crearHeart(){
+
+		var randX = Math.random()*(40 + 600) + 40;
+		const createEnable = Math.random() >= 0.5;
+		if(createEnable){
+			
+			const santaHeart = new SantaHeart(this, randX, 990);
+			this.hearts.add(santaHeart);
+			this.add.existing(santaHeart);
+		}
+		
+	}
+
+	updateChimneyCount(pos){
+
+		this.chimeneyCount = pos;
+	}
 	crearChimeneas(){
 
 		const fixer = 80;
@@ -105,7 +159,7 @@ class Level extends Phaser.Scene {
 
 				switch(this.chimeneyCount){
 					case 0:
-						console.log('estoy aqui');
+						
 						this.minPos = 150-fixer;
 						this.maxpos = 170-fixer;
 						this.chimeneyCount++;
@@ -123,7 +177,7 @@ class Level extends Phaser.Scene {
 					case 3:
 						this.minPos = 630-fixer;
 						this.maxpos = 650-fixer;
-						this.chimeneyCount = 0;
+						this.chimeneyCount++;
 						break;
 					default:
 						break;
@@ -132,7 +186,8 @@ class Level extends Phaser.Scene {
 				this.randomX = Math.random()*(this.minPos -this.maxpos)+this.maxpos;
 				console.log(this.randomX);
 									
-				const chimney = new Chimney(this, this.randomX, this.game.config.height*1.3);
+				const chimney = new Chimney(this, this.randomX, this.game.config.height/0.8);
+				chimney.chimneyPos = this.chimeneyCount-1;
 				this.add.existing(chimney);
 				this.chimeneas.add(chimney);
 
@@ -145,8 +200,21 @@ class Level extends Phaser.Scene {
 
 	}
 
+	createChimeys(){
+		this.createChimneyTimer = this.time.addEvent({
+			delay: 1000,                // ms
+			callback: this.crearChimeneas,
+			//args: [],
+			callbackScope: this,
+			loop: true
+		});
+	}
+
 	mouseClickDown(){
-		
+		this.firstimeMove = true;
+		if(this.firstimeMove){
+			this.createChimeys();
+		}
 		this.canMove=true;
 		this.oldx = this.myInput.x;
 		this.oldy = this.myInput.y;
@@ -168,6 +236,9 @@ class Level extends Phaser.Scene {
 
 	shootingSanta(){
 
+		if(!this.player.isKilled){
+		var flag = false;
+
 		this.shootingTween = this.tweens.add({
 			targets: this.player,
 			scaleX: '+=0.03',
@@ -175,13 +246,27 @@ class Level extends Phaser.Scene {
 			duration: 125,
 			repeat: -1,
 			yoyo: true,
-			loop: true,
+			loop: false,
+		
 			
 		});
+
+		var shotFlag=true;
+
 		this.shootingTween.on('repeat', function(){
-			this.santaFire();
+			if(!this.player.isKilled){
+			flag = !flag;
+			if(flag){
+				this.santaFire();
+			
+			}
+			
+		}
+				
+			
+			
 		}, this)
-		
+	}
 	}
 
 	santaFire(){
@@ -191,7 +276,7 @@ class Level extends Phaser.Scene {
 	}
 
 	floatingSanta(){
-
+		if(!this.player.isKilled){
 		this.player.scaleX = 0.8;
 		this.player.scaleY = 0.8;
 		this.floatingTween = this.tweens.add({
@@ -203,7 +288,7 @@ class Level extends Phaser.Scene {
 			loop: true,
 			
 		});
-		
+	}
 	}
 	
 	
@@ -211,11 +296,19 @@ class Level extends Phaser.Scene {
 
 		this.myInput = this.input.activePointer;
 
-		if(this.myInput.isDown){
-		
+		if(this.myInput.isDown && !this.player.isKilled && this.player.canControl && this.canMove){
+			
 			this.player.x += (this.myInput.x - this.player.x)/5;
 			this.player.y += (this.myInput.y - this.oldy)/15;
 		
+		}
+
+	//	console.log(this.player.canControl);
+
+		if(this.player.canControl & !this.firstimeMove){
+			
+			this.player.y = 300;
+			this.player.x = 330;
 		}
 
 		if(this.player.x >= this.game.config.width-this.player.width/2){
@@ -228,13 +321,17 @@ class Level extends Phaser.Scene {
 			this.player.x=this.player.width/2;
 		}
 
+		if(!this.player.isKilled){
 		
-		if(this.player.y<30){
-			this.player.y = 30;
-		}
+			if(this.player.y<30 && this.canMove){
+				this.player.y = 30;
+			}
 
-		if(this.player.y>=this.game.config.height/2){
-			this.player.y = this.game.config.height/2;
+		
+			if(this.player.y>=this.game.config.height/2){
+				this.player.y = this.game.config.height/2;
+			}
+
 		}
 		
 		this.bgBuildings2.x+=0.2;

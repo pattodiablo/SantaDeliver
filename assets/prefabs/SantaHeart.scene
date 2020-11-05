@@ -1,5 +1,5 @@
 {
-    "id": "b17e066f-2408-4454-961c-81bc610c7f88",
+    "id": "dab19baf-a1a9-4560-a400-1770e190776e",
     "sceneType": "PREFAB",
     "settings": {
         "preloadMethodName": "",
@@ -10,14 +10,14 @@
     },
     "displayList": [
         {
-            "type": "Image",
-            "id": "aef383ba-6970-4f53-8cdb-f78cf22a9ae1",
-            "label": "portal",
+            "type": "Sprite",
+            "id": "6b950b75-c5d2-430b-b511-ebf18f9cd065",
+            "label": "heartLife0000",
             "components": [],
             "texture": {
-                "key": "portal"
-            },
-            "originY": 1
+                "key": "animations",
+                "frame": "heartLife0000"
+            }
         }
     ],
     "meta": {

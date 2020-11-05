@@ -3,13 +3,15 @@
 
 /* START OF COMPILED CODE */
 
-class Debree extends Phaser.GameObjects.Image {
+class SantaHeart extends Phaser.GameObjects.Sprite {
 	
 	constructor(scene, x, y, texture, frame) {
-		super(scene, x, y, texture || "debree", frame);
+		super(scene, x, y, texture || "animations", frame !== undefined && frame !== null ? frame : "heartLife0000");
 		
 		/* START-USER-CTR-CODE */
-		this.start();
+		this.scene.events.once(Phaser.Scenes.Events.UPDATE, this.start, this);
+		
+		
 	
 		/* END-USER-CTR-CODE */
 	}
@@ -17,18 +19,23 @@ class Debree extends Phaser.GameObjects.Image {
 	/* START-USER-CODE */
 
 	start(){
-
-		this.setScale(Math.random()*4);
+	
 		const arcade = this.scene.physics;
 		arcade.add.existing(this);
-		this.alpha = 0.2;
-		const body = this.body;
-		this.rotation=Math.random();
-		const plusOrMinus = Math.random() < 0.5 ? -1 : 1;
-		//this.body.velocity.x = Math.random( )*60*plusOrMinus;
-		this.body.angularVelocity = Math.random( )*360*plusOrMinus;
-		body.setSize(this.width, this.height);
-		body.velocity.y = 500;
+		this.body.velocity.y=-60;
+
+		this.play("HeartBeat");
+
+		this.growAnim = this.scene.tweens.add({
+			targets: this,
+			x: '-=20',
+			
+			duration: 2000,
+			
+			yoyo: true,
+			loop: true,
+			repeat: -1
+		});
 
 		this.updateTimer = this.scene.time.addEvent({
 			delay: 10,       // ms
@@ -37,18 +44,17 @@ class Debree extends Phaser.GameObjects.Image {
 			callbackScope: this,
 			loop: true
 		});
+
+
 	}
 
 	customUpdate(){
 		
-		if(this.y>=960){
+		if(this.y<=-100){
 		
-			this.updateTimer.remove();	
+			this.updateTimer.remove();
 			this.destroy();
-				
 		}
-
-	
 	}
 
 	/* END-USER-CODE */

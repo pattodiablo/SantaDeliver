@@ -62,8 +62,59 @@
             "texture": {
                 "key": "moonBg"
             },
-            "x": 323,
+            "x": 324,
             "y": 69
+        },
+        {
+            "type": "Image",
+            "id": "9626e07f-0655-425e-a02d-6d4602bcee76",
+            "label": "panel",
+            "components": [],
+            "texture": {
+                "key": "panel"
+            },
+            "x": 120,
+            "y": 51
+        },
+        {
+            "type": "Text",
+            "id": "0da29bbb-f7db-4c3f-839d-d6147332f2cf",
+            "label": "giftsNumber",
+            "scope": "CLASS",
+            "components": [],
+            "x": 111,
+            "y": 30,
+            "originX": 0,
+            "originY": 0,
+            "text": "000",
+            "fontFamily": "arial",
+            "fontSize": "46px",
+            "fontStyle": "bold"
+        },
+        {
+            "type": "Text",
+            "id": "471fc48c-2ccb-44dd-a9d2-cf5dc46914f0",
+            "label": "text_1_1",
+            "components": [],
+            "x": 89,
+            "y": 12,
+            "originX": 0,
+            "originY": 0,
+            "text": "Gifts delivered",
+            "fontFamily": "arial",
+            "fontSize": "18px",
+            "fontStyle": "bold"
+        },
+        {
+            "type": "Image",
+            "id": "cc216091-5b19-4370-8657-7beb046e4efb",
+            "label": "giftIcon",
+            "components": [],
+            "texture": {
+                "key": "giftIcon"
+            },
+            "x": 51,
+            "y": 47
         },
         {
             "prefabId": "35822b4f-3c3f-4cd6-8fa2-555db747ea57",
@@ -71,8 +122,46 @@
             "label": "player",
             "scope": "CLASS",
             "components": [],
-            "x": 484,
-            "y": 383
+            "x": 319,
+            "y": -140
+        },
+        {
+            "type": "Image",
+            "id": "c2c5ab52-5cc1-404b-b963-62daa3667896",
+            "label": "panel_1",
+            "components": [],
+            "texture": {
+                "key": "panel"
+            },
+            "x": 530,
+            "y": 51,
+            "flipX": true
+        },
+        {
+            "type": "Image",
+            "id": "7b1a2519-0d89-46dc-8d1e-5828dbc8cb95",
+            "label": "heart",
+            "components": [],
+            "texture": {
+                "key": "heart"
+            },
+            "x": 504,
+            "y": 50
+        },
+        {
+            "type": "Text",
+            "id": "60f8cea8-7de3-4bb6-b4fc-d00237d889ce",
+            "label": "lifes",
+            "scope": "CLASS",
+            "components": [],
+            "x": 549,
+            "y": 26,
+            "originX": 0,
+            "originY": 0,
+            "text": "x 10",
+            "fontFamily": "Arial",
+            "fontSize": "36px",
+            "fontStyle": "bold"
         }
     ],
     "meta": {

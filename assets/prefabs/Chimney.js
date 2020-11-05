@@ -23,6 +23,8 @@ class Chimney extends Phaser.GameObjects.Sprite {
 		const body = this.body;
 		this.isObstructed = true;
 		this.portaCreated =  false;
+		this.chimneyLife = 20;
+		this.isDestroyed = false;
 		body.immovable = true;
 		body.setSize(this.width, this.height-54);
 		
@@ -52,10 +54,12 @@ class Chimney extends Phaser.GameObjects.Sprite {
 	
 		if(this.isObstructed != true){
 			if(!this.portaCreated){
-				console.log(this.y-this.width*3);
-			const portal = new Portal(this.scene, this.x, this.y-this.width*3);
-			this.scene.add.existing(portal);
-			this.portaCreated = true;
+				
+				this.portal = new Portal(this.scene, this.x, this.y-this.width*3);
+				this.scene.portals.add(this.portal);
+				this.scene.add.existing(this.portal);
+				this.portal.currentChimney = this;
+				this.portaCreated = true;
 			}
 			
 		}
@@ -69,7 +73,7 @@ class Chimney extends Phaser.GameObjects.Sprite {
 
 	growAnim(){
 
-		this.growAnim = this.scene.tweens.add({
+		this.growTween = this.scene.tweens.add({
 			targets: this,
 			y: '-=20',
 			duration: 2000,
@@ -82,10 +86,15 @@ class Chimney extends Phaser.GameObjects.Sprite {
 
 	updateActions(){
 
-	
-		
-		if(this.y<=this.scene.game.config.height/3){
-		//	this.growTimer.stop();
+		if(this.y>1920 && !this.isDestroyed){
+			
+			this.portal.destroy();
+			this.growTimer.remove();
+			
+			this.scene.chimeneyCount = this.chimneyPos
+			console.log(this.scene.chimeneyCount);
+			this.destroy();
+			this.isDestroyed = true;
 		}
 	}
 

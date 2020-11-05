@@ -54,11 +54,19 @@ class Enemy extends Phaser.GameObjects.Sprite {
 
 	shotByBullet(player,bullet){
 
+		this.growAnim = this.scene.tweens.add({
+			targets: this,
+			scaleX: '+=0.05',
+			duration: 50,
+			yoyo: true,
+			loop: false,
+		});
+
 		if(!this.isDeath){
 
 		
 		this.enemyLife--;
-		console.log(this.enemyLife);
+		
 	
 		bullet.destroy();
 		this.enemyShield.hit();

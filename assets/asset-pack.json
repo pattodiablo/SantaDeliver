@@ -132,6 +132,37 @@
                 "url": "assets/prefabs/Portal.js",
                 "type": "script",
                 "key": "Portal"
+            },
+            {
+                "url": "assets/images/panel.png",
+                "type": "image",
+                "key": "panel"
+            },
+            {
+                "url": "assets/images/giftIcon.png",
+                "type": "image",
+                "key": "giftIcon"
+            },
+            {
+                "atlasURL": "assets/animations/animations.json",
+                "textureURL": "assets/animations/animations.png",
+                "type": "atlas",
+                "key": "animations"
+            },
+            {
+                "url": "assets/prefabs/SantaHeart.js",
+                "type": "script",
+                "key": "SantaHeart"
+            },
+            {
+                "url": "assets/animations/animationsList.json",
+                "type": "animation",
+                "key": "animationsList"
+            },
+            {
+                "url": "assets/images/heart.png",
+                "type": "image",
+                "key": "heart"
             }
         ]
     },
