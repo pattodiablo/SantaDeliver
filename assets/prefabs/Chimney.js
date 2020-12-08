@@ -17,7 +17,8 @@ class Chimney extends Phaser.GameObjects.Sprite {
 	/* START-USER-CODE */
 
 	start(){
-
+		
+		this.growingSound = this.scene.sound.add('growing');
 		const arcade = this.scene.physics;
 		arcade.add.existing(this);
 		const body = this.body;
@@ -73,6 +74,7 @@ class Chimney extends Phaser.GameObjects.Sprite {
 	}
 
 	growAnim(){
+		this.growingSound.play();
 console.log(this.y);
 		if(this.y>=900){
 		this.growTween = this.scene.tweens.add({

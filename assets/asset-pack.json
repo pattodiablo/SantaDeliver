@@ -2,9 +2,15 @@
     "section1": {
         "files": [
             {
-                "url": "assets/dino.png",
-                "type": "image",
-                "key": "dino"
+                "atlasURL": "assets/animations/animations.json",
+                "textureURL": "assets/animations/animations.png",
+                "type": "atlas",
+                "key": "animations"
+            },
+            {
+                "url": "assets/animations/animationsList.json",
+                "type": "animation",
+                "key": "animationsList"
             },
             {
                 "url": "assets/images/background.png",
@@ -22,9 +28,19 @@
                 "key": "bgBuildings2"
             },
             {
-                "url": "assets/images/moonBg.png",
+                "url": "assets/prefabs/Bullet.js",
+                "type": "script",
+                "key": "Bullet"
+            },
+            {
+                "url": "assets/images/chimney.png",
                 "type": "image",
-                "key": "moonBg"
+                "key": "chimney"
+            },
+            {
+                "url": "assets/prefabs/Chimney.js",
+                "type": "script",
+                "key": "Chimney"
             },
             {
                 "url": "assets/images/chimneyBg.png",
@@ -32,36 +48,29 @@
                 "key": "chimneyBg"
             },
             {
-                "url": "assets/images/player.png",
+                "url": "assets/images/citylights.png",
                 "type": "image",
-                "key": "player"
+                "key": "citylights"
             },
             {
-                "url": "assets/images/laserGift.png",
+                "url": "assets/images/debree.png",
                 "type": "image",
-                "key": "laserGift"
+                "key": "debree"
             },
             {
-                "url": "assets/levels/Level.js",
-                "type": "sceneFile",
-                "key": "Level"
-            },
-            {
-                "url": "assets/prefabs/Bullet.js",
+                "url": "assets/prefabs/Debree.js",
                 "type": "script",
-                "key": "Bullet"
+                "key": "Debree"
+            },
+            {
+                "url": "assets/dino.png",
+                "type": "image",
+                "key": "dino"
             },
             {
                 "url": "assets/images/enemy.png",
                 "type": "image",
                 "key": "enemy"
-            },
-            {
-                "url": [
-                    "assets/sounds/shoot.mp3"
-                ],
-                "type": "audio",
-                "key": "shoot"
             },
             {
                 "url": "assets/prefabs/Enemy.js",
@@ -79,26 +88,6 @@
                 "key": "EnemyBullet"
             },
             {
-                "url": "assets/prefabs/SantaPlayer.js",
-                "type": "script",
-                "key": "SantaPlayer"
-            },
-            {
-                "url": "assets/images/flake.png",
-                "type": "image",
-                "key": "flake"
-            },
-            {
-                "url": "assets/images/chimney.png",
-                "type": "image",
-                "key": "chimney"
-            },
-            {
-                "url": "assets/prefabs/Chimney.js",
-                "type": "script",
-                "key": "Chimney"
-            },
-            {
                 "url": "assets/images/enemyShield.png",
                 "type": "image",
                 "key": "enemyShield"
@@ -109,19 +98,93 @@
                 "key": "EnemyShield"
             },
             {
-                "url": "assets/images/debree.png",
-                "type": "image",
-                "key": "debree"
+                "url": [
+                    "assets/originalSounds/enemyShot.wav"
+                ],
+                "type": "audio",
+                "key": "enemyShot"
             },
             {
-                "url": "assets/prefabs/Debree.js",
-                "type": "script",
-                "key": "Debree"
+                "url": [
+                    "assets/sounds/enemyShot.mp3"
+                ],
+                "type": "audio",
+                "key": "enemyShot_1"
             },
             {
-                "url": "assets/images/citylights.png",
+                "url": "assets/images/flake.png",
                 "type": "image",
-                "key": "citylights"
+                "key": "flake"
+            },
+            {
+                "url": [
+                    "assets/originalSounds/giftDelivered.wav"
+                ],
+                "type": "audio",
+                "key": "giftDelivered"
+            },
+            {
+                "url": "assets/images/giftIcon.png",
+                "type": "image",
+                "key": "giftIcon"
+            },
+            {
+                "url": [
+                    "assets/originalSounds/gotHeart.wav"
+                ],
+                "type": "audio",
+                "key": "gotHeart"
+            },
+            {
+                "url": [
+                    "assets/originalSounds/growing.wav"
+                ],
+                "type": "audio",
+                "key": "growing"
+            },
+            {
+                "url": "assets/images/heart.png",
+                "type": "image",
+                "key": "heart"
+            },
+            {
+                "url": [
+                    "assets/originalSounds/hurt.wav"
+                ],
+                "type": "audio",
+                "key": "hurt"
+            },
+            {
+                "url": [
+                    "assets/originalSounds/killEnemy.wav"
+                ],
+                "type": "audio",
+                "key": "killEnemy"
+            },
+            {
+                "url": "assets/images/laserGift.png",
+                "type": "image",
+                "key": "laserGift"
+            },
+            {
+                "url": "assets/levels/Level.js",
+                "type": "sceneFile",
+                "key": "Level"
+            },
+            {
+                "url": "assets/images/moonBg.png",
+                "type": "image",
+                "key": "moonBg"
+            },
+            {
+                "url": "assets/images/panel.png",
+                "type": "image",
+                "key": "panel"
+            },
+            {
+                "url": "assets/images/player.png",
+                "type": "image",
+                "key": "player"
             },
             {
                 "url": "assets/images/portal.png",
@@ -134,35 +197,49 @@
                 "key": "Portal"
             },
             {
-                "url": "assets/images/panel.png",
-                "type": "image",
-                "key": "panel"
-            },
-            {
-                "url": "assets/images/giftIcon.png",
-                "type": "image",
-                "key": "giftIcon"
-            },
-            {
-                "atlasURL": "assets/animations/animations.json",
-                "textureURL": "assets/animations/animations.png",
-                "type": "atlas",
-                "key": "animations"
-            },
-            {
                 "url": "assets/prefabs/SantaHeart.js",
                 "type": "script",
                 "key": "SantaHeart"
             },
             {
-                "url": "assets/animations/animationsList.json",
-                "type": "animation",
-                "key": "animationsList"
+                "url": "assets/prefabs/SantaPlayer.js",
+                "type": "script",
+                "key": "SantaPlayer"
             },
             {
-                "url": "assets/images/heart.png",
-                "type": "image",
-                "key": "heart"
+                "url": [
+                    "assets/originalSounds/shieldDestroy.wav"
+                ],
+                "type": "audio",
+                "key": "shieldDestroy"
+            },
+            {
+                "url": [
+                    "assets/originalSounds/shieldHit.wav"
+                ],
+                "type": "audio",
+                "key": "shieldHit"
+            },
+            {
+                "url": [
+                    "assets/sounds/shoot.mp3"
+                ],
+                "type": "audio",
+                "key": "shoot"
+            },
+            {
+                "url": [
+                    "assets/originalSounds/shoot.wav"
+                ],
+                "type": "audio",
+                "key": "shoot_1"
+            },
+            {
+                "url": [
+                    "assets/sounds/shoot.ogg"
+                ],
+                "type": "audio",
+                "key": "shoot_2"
             }
         ]
     },

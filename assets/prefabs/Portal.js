@@ -24,7 +24,7 @@ class Portal extends Phaser.GameObjects.Image {
 	/* START-USER-CODE */
 
 	start(){
-		
+		this.giftSound = this.scene.sound.add('giftDelivered');
 		this.growAnim();
 		const arcade = this.scene.physics;
 		arcade.add.existing(this);
@@ -34,7 +34,7 @@ class Portal extends Phaser.GameObjects.Image {
 	}
 
 	getGift(portal,gift){
-
+		this.giftSound.play();
 		this.scene.giftsNumber.text++;
 
 		console.log('gif delivered');

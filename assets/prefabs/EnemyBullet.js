@@ -21,7 +21,7 @@ class EnemyBullet extends Phaser.GameObjects.Sprite {
 	start(){
 		
 		if(typeof this.scene !== 'undefined'){
-		this.bullet = this.scene.sound.add('shoot');
+		this.bullet = this.scene.sound.add('enemyShot');
 		
 		const arcade = this.scene.physics;
 		arcade.add.existing(this);
