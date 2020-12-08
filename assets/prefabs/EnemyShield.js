@@ -17,6 +17,8 @@ class EnemyShield extends Phaser.GameObjects.Sprite {
 
 	start(){
 
+		this.shieldHitSound = this.scene.sound.add('shieldHit');
+		this.shieldDestroySound = this.scene.sound.add('shieldDestroy');
 		this.enemyUser = null;
 		this.canDebre = true;
 		this.glowAnimation();
@@ -42,7 +44,8 @@ class EnemyShield extends Phaser.GameObjects.Sprite {
 	}	
 
 	hit(){
-
+		this.shieldHitSound.play();
+		
 		this.setTintFill(0xf6a352,this.currenAlphaPower);
 		this.normalTint();
 		this.scaleX-=0.1;
@@ -73,7 +76,7 @@ class EnemyShield extends Phaser.GameObjects.Sprite {
 		if(typeof this.scene !== 'undefined'){
 			this.canDebre = false;
 			this.visible = false;
-			
+			this.shieldDestroySound.play();
 
 			
 			this.reloadTimer = this.scene.time.addEvent({
@@ -87,7 +90,7 @@ class EnemyShield extends Phaser.GameObjects.Sprite {
 	}
 
 	removeShield(){
-
+		
 		this.reloadTimer.remove();
 		this.updateTimer.remove();
 		this.destroy();

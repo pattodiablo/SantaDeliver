@@ -23,6 +23,8 @@ class SantaPlayer extends Phaser.GameObjects.Sprite {
 
 	start(){
 
+		this.hitByBulletSound = this.scene.sound.add('hurt');
+		this.gotHeartSound = this.scene.sound.add('gotHeart');
 		const arcade = this.scene.physics;
 		arcade.add.existing(this);
 		this.body.enable = false;
@@ -62,7 +64,7 @@ class SantaPlayer extends Phaser.GameObjects.Sprite {
 	
 
 	shotByBullet(player,bullet){
-
+		this.hitByBulletSound.play();
 		this.santaLife--;
 		console.log(this.santaLife);
 		if(this.santaLife<=0){
@@ -82,7 +84,7 @@ class SantaPlayer extends Phaser.GameObjects.Sprite {
 	}
 
 	addHeart(player,heart){
-
+		this.gotHeartSound.play();
 		this.santaLife++;
 		if(this.santaLife>=10){
 			this.santaLife=10;
