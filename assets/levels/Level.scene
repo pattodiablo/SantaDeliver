@@ -162,8 +162,24 @@
             "fontFamily": "Arial",
             "fontSize": "36px",
             "fontStyle": "bold"
+        },
+        {
+            "type": "Text",
+            "id": "963df528-1d95-419c-8734-7ef3304a57bd",
+            "label": "gameOverText",
+            "scope": "CLASS",
+            "components": [],
+            "x": 203,
+            "y": 404,
+            "originX": 0,
+            "originY": 0,
+            "text": "GAME OVER",
+            "fontFamily": "Arial",
+            "fontSize": "36px",
+            "fontStyle": "bold"
         }
     ],
+    "plainObjects": [],
     "meta": {
         "app": "Phaser Editor 2D - Scene Editor",
         "url": "https://phasereditor2d.com",

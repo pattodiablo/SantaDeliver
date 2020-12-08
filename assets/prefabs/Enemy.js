@@ -18,8 +18,8 @@ class Enemy extends Phaser.GameObjects.Sprite {
 	/* START-USER-CODE */
 	start(){
 		
-		this.enemyLife = 50;
-		this.finalLife = 20;
+		this.enemyLife = 5;
+		this.finalLife = 5;
 		this.isDeath =  false;
 		const arcade = this.scene.physics;
 		arcade.add.existing(this);

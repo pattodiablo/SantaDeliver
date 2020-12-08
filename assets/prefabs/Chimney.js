@@ -23,9 +23,10 @@ class Chimney extends Phaser.GameObjects.Sprite {
 		const body = this.body;
 		this.isObstructed = true;
 		this.portaCreated =  false;
-		this.chimneyLife = 20;
+		this.chimneyLife = 5;
 		this.isDestroyed = false;
 		body.immovable = true;
+		this.firstGrow = true
 		body.setSize(this.width, this.height-54);
 		
 		arcade.add.collider(this, this.scene.enemies, this.updateObstruction,null,this);
@@ -72,7 +73,8 @@ class Chimney extends Phaser.GameObjects.Sprite {
 	}
 
 	growAnim(){
-
+console.log(this.y);
+		if(this.y>=900){
 		this.growTween = this.scene.tweens.add({
 			targets: this,
 			y: '-=20',
@@ -80,7 +82,9 @@ class Chimney extends Phaser.GameObjects.Sprite {
 			ease: 'Bounce.easeOut',
 			loop: false,
 		});
-		
+	}else{
+		console.log('ya llegue');
+	}
 		
 	}
 

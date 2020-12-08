@@ -96,8 +96,8 @@ class SantaPlayer extends Phaser.GameObjects.Sprite {
 	killbyEnmy(player,enemy){
 		
 		this.isKilled = true;
-	
-		console.log('tuoching enemy')
+		this.scene.gameOverText.visible = true;
+		console.log('tuoching enemy');
 		
 		var timeline = this.scene.tweens.createTimeline();
 		timeline.add({
@@ -105,19 +105,25 @@ class SantaPlayer extends Phaser.GameObjects.Sprite {
 			scaleY: '1.1',
 			scaleX: '1.1',
 			yoyo: true,
-			
 			duration: 500
 		});
 
-	
-	
 	
 		timeline.add({
 			targets: this,
 			y: -500,
 			rotation:8,
-			duration: 1000
+			duration: 2000,
+			
 		});
+
+		timeline.add({
+			targets: this,
+			callback: () => {
+				this.visible=false;
+			  }
+		});
+
 		timeline.play();
 
 		player.body.enable = false;
@@ -130,6 +136,7 @@ class SantaPlayer extends Phaser.GameObjects.Sprite {
 	updateActions(){
 
 			this.scene.lifes.text =  'x ' + this.santaLife;
+			
 	}
 	
 	/* END-USER-CODE */

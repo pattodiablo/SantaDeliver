@@ -65,7 +65,7 @@ class Portal extends Phaser.GameObjects.Image {
 				portal.body.enable = false;
 				portal.visible = false;
 				portal.currentChimney.growTimer.remove();
-				portal.currentChimney.growTween.stop();
+				//portal.currentChimney.growTween.stop();
 				portal.currentChimney.setTint(0xe9d2d2,0.1);
 				portal.currentChimney.body.gravity.y = 300;
 				

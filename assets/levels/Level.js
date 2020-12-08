@@ -20,6 +20,8 @@ class Level extends Phaser.Scene {
 		this.player;
 		/** @type {Phaser.GameObjects.Text} */
 		this.lifes;
+		/** @type {Phaser.GameObjects.Text} */
+		this.gameOverText;
 		
 		/* START-USER-CTR-CODE */
 		// Write your code here.
@@ -77,11 +79,17 @@ class Level extends Phaser.Scene {
 		lifes.text = "x 10";
 		lifes.setStyle({"fontFamily":"Arial","fontSize":"36px","fontStyle":"bold"});
 		
+		// gameOverText
+		const gameOverText = this.add.text(203, 404, "", {});
+		gameOverText.text = "GAME OVER";
+		gameOverText.setStyle({"fontFamily":"Arial","fontSize":"36px","fontStyle":"bold"});
+		
 		this.bgBuildings2 = bgBuildings2;
 		this.bgBuildings1 = bgBuildings1;
 		this.giftsNumber = giftsNumber;
 		this.player = player;
 		this.lifes = lifes;
+		this.gameOverText = gameOverText;
 	}
 	
 	/* START-USER-CODE */
@@ -89,10 +97,12 @@ class Level extends Phaser.Scene {
 	// Write your code here.
 	create(){
 
+		
 		this._create();
 		this.canMove = false;
 		this.firstimeMove = false;
-		
+		this.gameOverText.visible=false;
+	
 		this.input.on('pointerdown',this.mouseClickDown,this);
 		this.input.on('pointerup',this.mouseClickUp,this);
 	
