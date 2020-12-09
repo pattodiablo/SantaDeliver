@@ -208,7 +208,7 @@
             },
             {
                 "url": [
-                    "assets/originalSounds/shieldDestroy.wav"
+                    "assets/sounds/shieldDestroy.mp3"
                 ],
                 "type": "audio",
                 "key": "shieldDestroy"

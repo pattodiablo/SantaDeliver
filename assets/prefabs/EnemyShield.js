@@ -100,7 +100,7 @@ class EnemyShield extends Phaser.GameObjects.Sprite {
 		this.canDebre = true;
 		this.visible =  true;
 		this.currentTint = 0xffebd3;
-		this.enemyUser.enemyLife = 50;
+		this.enemyUser.enemyLife = 20;
 	}
 
 	normalTint(){
