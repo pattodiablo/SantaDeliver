@@ -18,6 +18,7 @@ class Enemy extends Phaser.GameObjects.Sprite {
 	/* START-USER-CODE */
 	start(){
 		
+		this.killEnemySound = this.scene.sound.add('killEnemy');
 		this.enemyLife = 5;
 		this.finalLife = 5;
 		this.isDeath =  false;
@@ -105,7 +106,7 @@ class Enemy extends Phaser.GameObjects.Sprite {
 	}
 
 	fall(){
-
+		
 		this.growAnim = this.scene.tweens.add({
 			targets: this,
 			y: '-=40',
@@ -118,7 +119,7 @@ class Enemy extends Phaser.GameObjects.Sprite {
 			loop: false,
 		});
 		
-		
+		this.killEnemySound.play();
 	}
 
 	killenemy(){
