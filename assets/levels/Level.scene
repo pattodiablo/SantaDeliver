@@ -170,13 +170,25 @@
             "scope": "CLASS",
             "components": [],
             "x": 203,
-            "y": 404,
+            "y": 328,
             "originX": 0,
             "originY": 0,
             "text": "GAME OVER",
             "fontFamily": "Arial",
             "fontSize": "36px",
             "fontStyle": "bold"
+        },
+        {
+            "type": "Image",
+            "id": "eec73436-2a99-444f-8edd-13b82e2c2195",
+            "label": "playAgainBtn",
+            "scope": "CLASS",
+            "components": [],
+            "texture": {
+                "key": "playAgainBtn"
+            },
+            "x": 316,
+            "y": 463
         }
     ],
     "plainObjects": [],

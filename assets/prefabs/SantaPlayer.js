@@ -35,13 +35,22 @@ class SantaPlayer extends Phaser.GameObjects.Sprite {
 		this.isKilled = false;
 		this.santaLife = 10;
 		this.canControl = false;
+		this.visible=true;
 		this.santaIntro();
+		this.x = 319;
+		this.y = -140;
 		
 
 	}
 
 	santaIntro(){
 
+		if(typeof this.killAnim!=='undefined'){
+			console.log('si entro aqui')
+			this.killAnim.stop();
+			this.body.enable = true; 
+		}
+	
 		this.growAnim = this.scene.tweens.add({
 			targets: this,
 			y: '300',
@@ -99,10 +108,12 @@ class SantaPlayer extends Phaser.GameObjects.Sprite {
 		
 		this.isKilled = true;
 		this.scene.gameOverText.visible = true;
+		this.scene.playAgainBtn.visible=true;
+		
 		console.log('tuoching enemy');
 		
-		var timeline = this.scene.tweens.createTimeline();
-		timeline.add({
+		var killAnim = this.scene.tweens.createTimeline();
+		killAnim.add({
 			targets: this,
 			scaleY: '1.1',
 			scaleX: '1.1',
@@ -111,7 +122,7 @@ class SantaPlayer extends Phaser.GameObjects.Sprite {
 		});
 
 	
-		timeline.add({
+		killAnim.add({
 			targets: this,
 			y: -500,
 			rotation:8,
@@ -119,14 +130,14 @@ class SantaPlayer extends Phaser.GameObjects.Sprite {
 			
 		});
 
-		timeline.add({
+		killAnim.add({
 			targets: this,
 			callback: () => {
 				this.visible=false;
 			  }
 		});
 
-		timeline.play();
+		killAnim.play();
 
 		player.body.enable = false;
 
@@ -137,7 +148,7 @@ class SantaPlayer extends Phaser.GameObjects.Sprite {
 	
 	updateActions(){
 
-			this.scene.lifes.text =  'x ' + this.santaLife;
+			
 			
 	}
 	

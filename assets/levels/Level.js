@@ -22,6 +22,8 @@ class Level extends Phaser.Scene {
 		this.lifes;
 		/** @type {Phaser.GameObjects.Text} */
 		this.gameOverText;
+		/** @type {Phaser.GameObjects.Image} */
+		this.playAgainBtn;
 		
 		/* START-USER-CTR-CODE */
 		// Write your code here.
@@ -80,9 +82,12 @@ class Level extends Phaser.Scene {
 		lifes.setStyle({"fontFamily":"Arial","fontSize":"36px","fontStyle":"bold"});
 		
 		// gameOverText
-		const gameOverText = this.add.text(203, 404, "", {});
+		const gameOverText = this.add.text(203, 328, "", {});
 		gameOverText.text = "GAME OVER";
 		gameOverText.setStyle({"fontFamily":"Arial","fontSize":"36px","fontStyle":"bold"});
+		
+		// playAgainBtn
+		const playAgainBtn = this.add.image(316, 463, "playAgainBtn");
 		
 		this.bgBuildings2 = bgBuildings2;
 		this.bgBuildings1 = bgBuildings1;
@@ -90,6 +95,7 @@ class Level extends Phaser.Scene {
 		this.player = player;
 		this.lifes = lifes;
 		this.gameOverText = gameOverText;
+		this.playAgainBtn = playAgainBtn;
 	}
 	
 	/* START-USER-CODE */
@@ -102,6 +108,17 @@ class Level extends Phaser.Scene {
 		this.canMove = false;
 		this.firstimeMove = false;
 		this.gameOverText.visible=false;
+		this.playAgainBtn.visible=false;
+		this.playAgainBtn.setInteractive();
+		this.playAgainBtn.on('pointerdown', function(){
+
+			this.registry.destroy(); // destroy registry
+			this.events.off();// disable all active events
+			this.scene.restart();// restart current scene
+			
+  		},this);
+
+
 	
 		this.input.on('pointerdown',this.mouseClickDown,this);
 		this.input.on('pointerup',this.mouseClickUp,this);
@@ -194,7 +211,7 @@ class Level extends Phaser.Scene {
 				}
 				
 				this.randomX = Math.random()*(this.minPos -this.maxpos)+this.maxpos;
-				console.log(this.randomX);
+				
 									
 				const chimney = new Chimney(this, this.randomX, this.game.config.height/0.8);
 				chimney.chimneyPos = this.chimeneyCount-1;
@@ -303,6 +320,9 @@ class Level extends Phaser.Scene {
 	
 	
 	update(){
+	
+		console.log(this.player.y);
+		this.lifes.text =  'x ' + this.player.santaLife;
 
 		this.myInput = this.input.activePointer;
 

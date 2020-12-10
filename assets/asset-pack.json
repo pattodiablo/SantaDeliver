@@ -99,17 +99,10 @@
             },
             {
                 "url": [
-                    "assets/originalSounds/enemyShot.wav"
-                ],
-                "type": "audio",
-                "key": "enemyShot"
-            },
-            {
-                "url": [
                     "assets/sounds/enemyShot.mp3"
                 ],
                 "type": "audio",
-                "key": "enemyShot_1"
+                "key": "enemyShot"
             },
             {
                 "url": "assets/images/flake.png",
@@ -118,7 +111,7 @@
             },
             {
                 "url": [
-                    "assets/originalSounds/giftDelivered.wav"
+                    "assets/sounds/giftDelivered.mp3"
                 ],
                 "type": "audio",
                 "key": "giftDelivered"
@@ -130,14 +123,14 @@
             },
             {
                 "url": [
-                    "assets/originalSounds/gotHeart.wav"
+                    "assets/sounds/gotHeart.mp3"
                 ],
                 "type": "audio",
                 "key": "gotHeart"
             },
             {
                 "url": [
-                    "assets/originalSounds/growing.wav"
+                    "assets/sounds/growing.mp3"
                 ],
                 "type": "audio",
                 "key": "growing"
@@ -149,14 +142,14 @@
             },
             {
                 "url": [
-                    "assets/originalSounds/hurt.wav"
+                    "assets/sounds/hurt.mp3"
                 ],
                 "type": "audio",
                 "key": "hurt"
             },
             {
                 "url": [
-                    "assets/originalSounds/killEnemy.wav"
+                    "assets/sounds/killEnemy.mp3"
                 ],
                 "type": "audio",
                 "key": "killEnemy"
@@ -180,6 +173,11 @@
                 "url": "assets/images/panel.png",
                 "type": "image",
                 "key": "panel"
+            },
+            {
+                "url": "assets/images/playAgainBtn.png",
+                "type": "image",
+                "key": "playAgainBtn"
             },
             {
                 "url": "assets/images/player.png",
@@ -215,7 +213,7 @@
             },
             {
                 "url": [
-                    "assets/originalSounds/shieldHit.wav"
+                    "assets/sounds/shieldHit.mp3"
                 ],
                 "type": "audio",
                 "key": "shieldHit"
@@ -226,20 +224,6 @@
                 ],
                 "type": "audio",
                 "key": "shoot"
-            },
-            {
-                "url": [
-                    "assets/originalSounds/shoot.wav"
-                ],
-                "type": "audio",
-                "key": "shoot_1"
-            },
-            {
-                "url": [
-                    "assets/sounds/shoot.ogg"
-                ],
-                "type": "audio",
-                "key": "shoot_2"
             }
         ]
     },
