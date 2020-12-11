@@ -14,8 +14,7 @@ class SantaPlayer extends Phaser.GameObjects.Sprite {
 		/* START-USER-CTR-CODE */
 	
 		this.createEvent =	this.scene.events.once(Phaser.Scenes.Events.UPDATE, this.start, this);
-		this.updateEvent = 	this.scene.events.on(Phaser.Scenes.Events.UPDATE, this.updateActions, this);
-
+	
 		/* END-USER-CTR-CODE */
 	}
 	
@@ -36,49 +35,27 @@ class SantaPlayer extends Phaser.GameObjects.Sprite {
 		this.santaLife = 10;
 		this.canControl = false;
 		this.visible=true;
-		this.santaIntro();
-		this.x = 319;
-		this.y = -140;
+		
+		
+		
 		
 
 	}
 
-	santaIntro(){
-
-		if(typeof this.killAnim!=='undefined'){
-			console.log('si entro aqui')
-			this.killAnim.stop();
-			this.body.enable = true; 
-		}
 	
-		this.growAnim = this.scene.tweens.add({
-			targets: this,
-			y: '300',
-			x: '330',
-			duration: 3000,
-			yoyo: false,
-			loop: false
-		});
-		
-
-		this.growAnim.on('complete', function(){
-			console.log('animcomplete');
-			this.canControl = true;
-			this.body.enable = true; 
-		
-		}, this)
-
-	}
 
 	
 
 	shotByBullet(player,bullet){
-		this.hitByBulletSound.play();
+
+	
 		this.santaLife--;
-		console.log(this.santaLife);
+	
+
 		if(this.santaLife<=0){
 			this.killbyEnmy(this,bullet);
 		}
+
 		this.growAnim = this.scene.tweens.add({
 			targets: this,
 			scaleY: '-=0.1',
@@ -90,9 +67,12 @@ class SantaPlayer extends Phaser.GameObjects.Sprite {
 		});
 		
 		bullet.destroy();
+		this.hitByBulletSound.play();
+
 	}
 
 	addHeart(player,heart){
+
 		this.gotHeartSound.play();
 		this.santaLife++;
 		if(this.santaLife>=10){
@@ -145,12 +125,6 @@ class SantaPlayer extends Phaser.GameObjects.Sprite {
 
 	}
 
-	
-	updateActions(){
-
-			
-			
-	}
 	
 	/* END-USER-CODE */
 }

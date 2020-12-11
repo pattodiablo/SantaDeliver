@@ -111,15 +111,17 @@ class Level extends Phaser.Scene {
 		this.playAgainBtn.visible=false;
 		this.playAgainBtn.setInteractive();
 		this.playAgainBtn.on('pointerdown', function(){
-
-			this.registry.destroy(); // destroy registry
-			this.events.off();// disable all active events
-			this.scene.restart();// restart current scene
+			location.reload();
 			
   		},this);
 
 
-	
+		this.myInput = this.input.activePointer;
+		this.myInput.x = 0;
+		this.myInput.y = 0;
+
+		
+
 		this.input.on('pointerdown',this.mouseClickDown,this);
 		this.input.on('pointerup',this.mouseClickUp,this);
 	
@@ -159,8 +161,37 @@ class Level extends Phaser.Scene {
 			scale: { start: 0.5, end: 1 },
 			blendMode: 'ADD'
 		});
+
+		this.player.y = -140;
+		this.player.x = 319;
+		this.santaIntro();
 		
 	}
+
+
+	santaIntro(){
+		console.log(this.player.visible);
+		this.growAnim = this.tweens.add({
+			targets: this.player,
+			y: '300',
+			x: '330',
+			duration: 3000,
+			yoyo: false,
+			loop: false
+		});
+		
+
+		this.growAnim.on('complete', function(){
+			
+			this.growAnim.stop();	
+			console.log('animcomplete');
+			this.player.canControl = true;
+			this.player.body.enable = true; 
+		
+		}, this)
+
+	}
+
 
 	crearHeart(){
 
@@ -320,13 +351,19 @@ class Level extends Phaser.Scene {
 	
 	
 	update(){
+		
 	
-		console.log(this.player.y);
 		this.lifes.text =  'x ' + this.player.santaLife;
 
-		this.myInput = this.input.activePointer;
+			
+		if(this.player.canControl & !this.firstimeMove){
+			
+			this.player.y = 300;
+			this.player.x = 330;
+		}
 
 		if(this.myInput.isDown && !this.player.isKilled && this.player.canControl && this.canMove){
+			
 			
 			this.player.x += (this.myInput.x - this.player.x)/5;
 			this.player.y += (this.myInput.y - this.oldy)/15;
@@ -335,11 +372,7 @@ class Level extends Phaser.Scene {
 
 	//	console.log(this.player.canControl);
 
-		if(this.player.canControl & !this.firstimeMove){
-			
-			this.player.y = 300;
-			this.player.x = 330;
-		}
+	
 
 		if(this.player.x >= this.game.config.width-this.player.width/2){
 
